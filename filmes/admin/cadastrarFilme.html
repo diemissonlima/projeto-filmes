@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Filme</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container py-4" data-bs-theme="dark">
+    <h2 class="d-flex justify-content-center mb-4">Cadastrar Filme</h2>
+    <form id="cadastrarFilmeForm" enctype="multipart/form-data" class="mb-4">
+        <div class="mb-3">
+            <label for="capa" class="form-label">Capa</label>
+            <input type="file" id="capa" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="titulo" class="form-label">Título</label>
+            <input type="text" id="titulo" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <div class="col-md-4">
+                <label for="genero" class="form-label">Gênero</label>
+                <a href="cadastrarGenero.html" class="btn btn-secondary btn-sm ms-2 mb-1">+</a>
+            </div>
+            <select class="form-select" id="genero" aria-label="Default select example">
+                <!--Generos serao carregados dinamicamente aqui-->
+                
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="dataLancamento" class="form-label">Data de Laçamento</label>
+            <input type="date" class="form-control" id="dataLancamento">
+        </div>
+        <div class="mb-3">
+            <label for="duracao" class="form-label">Duração (Minutos)</label>
+            <input type="number" id="duracao" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="sinopse" class="form-label">Sinopse</label>
+            <textarea id="sinopse" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="trailerURL" class="form-label">Link do Trailer</label>
+            <input type="text" id="trailerURL" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="return confirm('Confirma os dados?')">Cadastrar</button>
+        <a href="listaFilmes.html" class="btn btn-secondary">Cancelar</a>
+    </form>
+
+    <script src="../public/scripts/cadastrarFilme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

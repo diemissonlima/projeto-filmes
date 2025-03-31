@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalhes Filme</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Início</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="../admin/listaFilmes.html">Admin</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="d-flex col-md-4">
+                <img src="" id="capa" class="img-fluid" alt="Imagem">
+            </div>
+            <div class="col-md-8 mt-3 fs-5">  
+                <h2 id="titulo" class="d-flex justify-content-center mb-4"></h2>
+                <p id="genero"></p>
+                <p id="dataLancamento"></p>
+                <p id="duracao"></p>
+                <p id="sinopse"></p>
+                <a id="trailerURL" href="" target="_blank" class="btn btn-primary btn-sm">Assistir Trailer</a>
+                <button class="btn btn-secondary btn-sm" onclick="window.history.back();">Voltar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/detalhesFilme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
