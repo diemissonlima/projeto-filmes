@@ -1,6 +1,5 @@
 let filmes = []; // Variável global para armazenar os filmes
 
-// Chama a função para buscar os dados assim que a página carrega
 async function buscarDados() {
     try {
         const response = await fetch('http://localhost/api/routes/filmes/listar.php', {
@@ -41,8 +40,8 @@ function mostrarFilmes(filmes) {
             <td>${converterData(filme.data_lancamento)}</td>
             <td>${filme.duracao} minutos</td>
             <td>
-                <a href="editarFilme.html?id=${filme.id}" class="btn btn-warning btn-sm">Editar</a>
-                <a href="listaFilmes.html" class="btn btn-danger btn-sm" onclick="excluirFilme(${filme.id})">Excluir</a>
+                <a href="editarFilme.html?id=${filme.id}" class="btn btn-warning btn-sm"><strong>Editar</strong></a>
+                <a href="listaFilmes.html" class="btn btn-danger btn-sm" onclick="excluirFilme(${filme.id})"><strong>Excluir</strong></a>
             </td>`;
         tabela.appendChild(tr);
     });

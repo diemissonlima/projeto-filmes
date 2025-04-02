@@ -39,7 +39,7 @@ function mostrarFilmes(filmesLista) {
                         <img src="http://localhost/api/public/uploads/${filme.capa}" alt="${filme.titulo}" class="card-img-top" >
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title d-flex justify-content-center">${filme.titulo}</h5>
+                        <h5 class="card-title d-flex justify-content-center"><strong>${filme.titulo}</strong></h5>
                     </div>
                 </div>
                 `;

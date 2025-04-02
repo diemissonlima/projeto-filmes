@@ -12,17 +12,16 @@
     <h2 class="d-flex justify-content-center mb-4">Cadastrar Filme</h2>
     <form id="cadastrarFilmeForm" enctype="multipart/form-data" class="mb-4">
         <div class="mb-3">
-            <label for="capa" class="form-label">Capa</label>
+            <label for="capa" class="form-label"><strong>Capa</strong></label>
             <input type="file" id="capa" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label for="titulo" class="form-label">Título</label>
+            <label for="titulo" class="form-label"><strong>Título</strong></label>
             <input type="text" id="titulo" class="form-control" required>
         </div>
         <div class="mb-3">
             <div class="col-md-4">
-                <label for="genero" class="form-label">Gênero</label>
-                <a href="cadastrarGenero.html" class="btn btn-secondary btn-sm ms-2 mb-1">+</a>
+                <label for="genero" class="form-label"><strong>Gênero</strong></label>
             </div>
             <select class="form-select" id="genero" aria-label="Default select example" required>
                 <!--Generos serao carregados dinamicamente aqui-->
@@ -38,23 +37,23 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="dataLancamento" class="form-label">Data de Laçamento</label>
+            <label for="dataLancamento" class="form-label"><strong>Data de Laçamento</strong></label>
             <input type="date" class="form-control" id="dataLancamento">
         </div>
         <div class="mb-3">
-            <label for="duracao" class="form-label">Duração (Minutos)</label>
+            <label for="duracao" class="form-label"><strong>Duração (Minutos)</strong></label>
             <input type="number" id="duracao" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label for="sinopse" class="form-label">Sinopse</label>
+            <label for="sinopse" class="form-label"><strong>Sinopse</strong></label>
             <textarea id="sinopse" class="form-control" required></textarea>
         </div>
         <div class="mb-3">
-            <label for="trailerURL" class="form-label">Link do Trailer</label>
+            <label for="trailerURL" class="form-label"><strong>Link do Trailer</strong></label>
             <input type="text" id="trailerURL" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="return confirm('Confirma os dados?')">Cadastrar</button>
-        <a href="listaFilmes.html" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary" onclick="return confirm('Confirma os dados?')"><strong>Cadastrar</strong></button>
+        <a href="listaFilmes.html" class="btn btn-secondary"><strong>Cancelar</strong></a>
     </form>
 
     <script src="scripts/cadastrarFilme.js"></script>
