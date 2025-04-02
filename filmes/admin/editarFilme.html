@@ -24,8 +24,21 @@
             <input type="text" id="titulo" class="form-control" value="" required>
         </div>
         <div class="mb-3">
-            <label for="genero" class="form-label">Gênero</label>
-            <input type="text" id="genero" class="form-control" value="" required>
+            <div class="col-md-4">
+                <label for="genero" class="form-label">Gênero</label>
+            </div>
+            <select class="form-select" id="genero" aria-label="Default select example" required>
+                <!--Generos serao carregados dinamicamente aqui-->
+                
+            </select>
+            <select class="form-select mt-2" id="genero2" aria-placeholder="Gênero 2 (Opcional)">
+                <!--Generos serao carregados dinamicamente aqui-->
+
+            </select>
+            <select class="form-select mt-2" id="genero3" aria-placeholder="Gênero 3 (Opcional)">
+                <!--Generos serao carregados dinamicamente aqui-->
+
+            </select>
         </div>
         <div class="mb-3">
             <label for="data_lancamento" class="form-label">Data de Laçamento</label>
@@ -47,7 +60,7 @@
         <a href="listaFilmes.html" class="btn btn-secondary">Cancelar</a>
     </form>
 
-    <script src="../public/scripts/editarFilme.js"></script>
+    <script src="scripts/editarFilme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

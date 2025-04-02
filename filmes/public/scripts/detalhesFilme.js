@@ -35,7 +35,7 @@ async function buscarDetalhesFilme(url_api) {
     }
 };
 
-function mostrarDetalhesFilme(filme) {
+function mostrarDetalhesFilme(filme) { 
     const img = document.getElementById('capa');
     const titulo = document.getElementById('titulo');
     const genero = document.getElementById('genero');
@@ -48,9 +48,20 @@ function mostrarDetalhesFilme(filme) {
     img.style.width = "500px";
     img.style.height = "600px";
     titulo.innerHTML = filme.titulo;
-    genero.innerHTML = `<strong>Genero:</strong> ${filme.genero}`;
-    dataLancamento.innerHTML = `<strong>Data Lançamento:</strong> ${filme.data_lancamento}`;
+    genero.innerHTML = `<strong>Genero:</strong> ${filme.generos[0]}`;
+    if (filme.generos.length === 2) {
+        genero.innerHTML = `<strong>Genero:</strong> ${filme.generos[0] + `/` + filme.generos[1]}`;
+    } 
+    if (filme.generos.length === 3) {
+        genero.innerHTML = `<strong>Genero:</strong> ${filme.generos[0] + `/` + filme.generos[1] + `/` + filme.generos[2]}`;
+    }
+    dataLancamento.innerHTML = `<strong>Data Lançamento:</strong> ${converterData(filme.data_lancamento)}`;
     duracao.innerHTML = `<strong>Duração:</strong> ${filme.duracao} minutos`;
     sinopse.innerHTML = `<strong>Sinopse:</strong> ${filme.sinopse}`;
     trailerLink.href = filme.trailer_url;
 };
+
+function converterData(data) {
+    const [ano, mes, dia] = data.split('-');
+    return `${dia}/${mes}/${ano}`; // Formato desejado: dd/mm/yyyy
+}
