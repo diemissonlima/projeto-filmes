@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("cadastrarFilmeForm");
 
     form.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Impede o envio padrão do formulário
+        event.preventDefault(); // impede o envio padrão do formulário
 
-        const capa = document.getElementById("capa").files[0]; // Obtém o arquivo da capa
+        const capa = document.getElementById("capa").files[0];
         const titulo = document.getElementById("titulo").value;
         const genero = document.getElementById("genero").value;
         const genero2 = document.getElementById("genero2").value;
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const trailerURL = document.getElementById("trailerURL").value;
 
         const formData = new FormData();
-        formData.append("capa", capa); // Adiciona o arquivo da capa ao FormData
+        formData.append("capa", capa);
         formData.append("titulo", titulo);
         formData.append("genero", genero);
         formData.append("genero_2", genero2);
@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append("duracao", duracao);
         formData.append("sinopse", sinopse);
         formData.append("trailer_url", trailerURL);
+
 
         try {
             const response = await fetch("http://localhost/api/routes/filmes/criar.php", {
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(response);
 
                 alert("Filme cadastrado com sucesso!");
-                window.location.href = "listaFilmes.html"; // Redireciona para a lista de filmes
+                window.location.href = "listaFilmes.html"; // redireciona para a lista de filmes
             } else {
                 alert("Erro ao cadastrar filme. Tente novamente.");
             }
@@ -60,7 +61,7 @@ async function buscarGeneros() {
         }
 
         const data = await response.json();
-        generosLista = data['dados']; // Armazena os filmes na variável global
+        generosLista = data['dados'];
         listarGeneros(generosLista);
 
     } catch (error) {
@@ -70,40 +71,40 @@ async function buscarGeneros() {
 
 function listarGeneros(generos) {
     const tabela = document.getElementById("genero");
-    tabela.innerHTML = ""; // Limpa a tabela antes de adicionar os novos filmes
+    tabela.innerHTML = ""; // limpa a tabela antes de adicionar os novos filmes
     const tabela2 = document.getElementById("genero2");
     tabela2.innerHTML = "";
     const tabela3 = document.getElementById("genero3");
     tabela3.innerHTML = "";
 
     const defaultOption = document.createElement("option");
-    defaultOption.value = ""; // Deixe o valor vazio para indicar "todos"
-    defaultOption.textContent = "Gênero Opcional"; // Texto padrão
-    defaultOption.selected = true; // Define como selecionado
-    tabela2.appendChild(defaultOption); // Adiciona a opção à tabela2
+    defaultOption.value = ""; // deixe o valor vazio para indicar "todos"
+    defaultOption.textContent = "Gênero Opcional"; // texto padrão
+    defaultOption.selected = true; // define como selecionado
+    tabela2.appendChild(defaultOption); // adiciona a opção à tabela2
 
     const defaultOption2 = document.createElement("option");
-    defaultOption2.value = ""; // Deixe o valor vazio para indicar "todos"
-    defaultOption2.textContent = "Gênero Opcional"; // Texto padrão
-    defaultOption2.selected = true; // Define como selecionado
-    tabela3.appendChild(defaultOption2); // Adiciona a opção à tabela2
+    defaultOption2.value = ""; // deixe o valor vazio para indicar "todos"
+    defaultOption2.textContent = "Gênero Opcional"; // texto padrão
+    defaultOption2.selected = true; // define como selecionado
+    tabela3.appendChild(defaultOption2); // adiciona a opção à tabela3
 
     generos.forEach(genero => {
         const option = document.createElement("option");
-        option.value = genero.nome; // Atribui o ID do gênero como valor
-        option.textContent = genero.nome; // Atribui o nome do gênero como texto
-        tabela.appendChild(option); // Adiciona a opção à tabela
+        option.value = genero.nome; // atribui o ID do gênero como valor
+        option.textContent = genero.nome; // atribui o nome do gênero como texto
+        tabela.appendChild(option); // adiciona a opção à tabela
 
         const option2 = document.createElement("option");
-        option2.value = genero.nome; // Atribui o ID do gênero como valor
-        option2.textContent = genero.nome; // Atribui o nome do gênero como texto
-        tabela2.appendChild(option2); // Adiciona a opção à tabela 
+        option2.value = genero.nome; // atribui o ID do gênero como valor
+        option2.textContent = genero.nome; // atribui o nome do gênero como texto
+        tabela2.appendChild(option2); // adiciona a opção à tabela2
 
         const option3 = document.createElement("option");
-        option3.value = genero.nome; // Atribui o ID do gênero como valor
-        option3.textContent = genero.nome; // Atribui o nome do gênero como texto
-        tabela3.appendChild(option3); // Adiciona a opção à tabela                
+        option3.value = genero.nome; // atribui o ID do gênero como valor
+        option3.textContent = genero.nome; // atribui o nome do gênero como texto
+        tabela3.appendChild(option3); // adiciona a opção à tabela3             
     });
 };
 
-buscarGeneros(); // Chama a função para buscar os gêneros ao carregar a página
+buscarGeneros(); // chama a função para buscar os gêneros ao carregar a página

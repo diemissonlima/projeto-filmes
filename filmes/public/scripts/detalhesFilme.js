@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // URL da API
-    const API_URL = `http://192.168.100.143/api/routes/filmes/listar.php?id=${filmeId}`;
+    const API_URL = `http://localhost/api/routes/filmes/listar.php?id=${filmeId}`;
 
     buscarDetalhesFilme(API_URL);
 });
@@ -44,7 +44,7 @@ function mostrarDetalhesFilme(filme) {
     const sinopse = document.getElementById('sinopse');
     const trailerLink = document.getElementById('trailerURL');
 
-    img.src = `http://192.168.100.143/api/public/uploads/${filme.capa}`;
+    img.src = `http://localhost/api/public/uploads/${filme.capa}`;
     img.style.width = "500px";
     img.style.height = "600px";
     titulo.innerHTML = filme.titulo;
@@ -63,5 +63,5 @@ function mostrarDetalhesFilme(filme) {
 
 function converterData(data) {
     const [ano, mes, dia] = data.split('-');
-    return `${dia}/${mes}/${ano}`; // Formato desejado: dd/mm/yyyy
+    return `${dia}/${mes}/${ano}`; // formato desejado: dd/mm/yyyy
 }

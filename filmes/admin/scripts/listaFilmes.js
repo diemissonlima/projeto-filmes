@@ -1,4 +1,4 @@
-let filmes = []; // Variável global para armazenar os filmes
+let filmes = []; // variável global para armazenar os filmes
 
 async function buscarDados() {
     try {
@@ -14,17 +14,17 @@ async function buscarDados() {
         }
 
         const data = await response.json();
-        filmes = data['dados']; // Armazena os filmes na variável global
+        filmes = data['dados']; // armazena os filmes na variável global
         mostrarFilmes(data['dados']);
     } catch (error) {
         console.error('Erro ao buscar os dados:', error);
     };
 };
 
-// Função para exibir os filmes na tabela
+// função para exibir os filmes na tabela
 function mostrarFilmes(filmes) {
     const tabela = document.querySelector('tbody');
-    tabela.innerHTML = ''; // Limpa a tabela antes de adicionar os filmes
+    tabela.innerHTML = ''; // limpa a tabela antes de adicionar os filmes
 
     filmes.forEach(filme => {
         const tr = document.createElement('tr');
@@ -85,17 +85,15 @@ async function excluirFilme(id) {
     }
 }
 
-// Remove acentos da string para permitir um filtro que desconsidere o uso de acentos
+// remove acentos da string para permitir um filtro que desconsidere o uso de acentos
 function removerAcentos(texto) {
     return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 }
 
-// Função para filtrar os filmes
+// função para filtrar os filmes
 function filtrarFilmes() {
     const nomeFiltro = removerAcentos(document.getElementById('filtroNome').value.toLowerCase());
     const generoFiltro = document.getElementById('filtroGenero').value;
-
-    //console.log(nomeFiltro); // Para depuração
 
     const filmesFiltrados = filmes.filter(filme => {
         const nomeMatch = removerAcentos(filme.titulo.toLowerCase()).includes(nomeFiltro);
@@ -104,7 +102,7 @@ function filtrarFilmes() {
         return nomeMatch && generoMatch;
     });
 
-    mostrarFilmes(filmesFiltrados); // Atualiza a exibição dos filmes
+    mostrarFilmes(filmesFiltrados); // atualiza a exibição dos filmes
 }
 
 async function buscarGeneros() {
@@ -121,7 +119,7 @@ async function buscarGeneros() {
         }
 
         const data = await response.json();
-        generosLista = data['dados']; // Armazena os filmes na variável global
+        generosLista = data['dados']; // armazena os filmes na variável global
         listarGeneros(generosLista);
 
     } catch (error) {
@@ -131,26 +129,26 @@ async function buscarGeneros() {
 
 function listarGeneros(generos) {
     const tabela = document.getElementById("filtroGenero");
-    tabela.innerHTML = ""; // Limpa a tabela antes de adicionar os novos filmes
+    tabela.innerHTML = ""; // limpa a tabela antes de adicionar os novos filmes
 
     const defaultOption = document.createElement("option");
-    defaultOption.value = ""; // Deixe o valor vazio para indicar "todos"
+    defaultOption.value = ""; // deixe o valor vazio para indicar "todos"
     defaultOption.textContent = "Filtrar por gênero...";
-    defaultOption.selected = true; // Define como selecionado
-    tabela.appendChild(defaultOption); // Adiciona a opção padrão
+    defaultOption.selected = true; // define como selecionado
+    tabela.appendChild(defaultOption); // adiciona a opção padrão
 
     generos.forEach(genero => {
         const option = document.createElement("option");
-        option.value = genero.nome; // Atribui o ID do gênero como valor
-        option.textContent = genero.nome; // Atribui o nome do gênero como texto
-        tabela.appendChild(option); // Adiciona a opção à tabela                
+        option.value = genero.nome; // atribui o ID do gênero como valor
+        option.textContent = genero.nome; // atribui o nome do gênero como texto
+        tabela.appendChild(option); // adiciona a opção à tabela                
     });
 };
 
 function converterData(data) {
     const [ano, mes, dia] = data.split('-');
-    return `${dia}/${mes}/${ano}`; // Formato desejado: dd/mm/yyyy
+    return `${dia}/${mes}/${ano}`; // formato desejado: dd/mm/yyyy
 }
 
-buscarDados(); // Chama a função para buscar os dados ao carregar a página
-buscarGeneros(); // Chama a função para buscar os gêneros ao carregar a página
+buscarDados(); // chama a função para buscar os dados ao carregar a página
+buscarGeneros(); // chama a função para buscar os gêneros ao carregar a página

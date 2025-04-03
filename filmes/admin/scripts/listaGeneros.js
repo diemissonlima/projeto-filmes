@@ -12,7 +12,7 @@ async function buscarGeneros() {
         }
 
         const data = await response.json();
-        generosLista = data['dados']; // Armazena os filmes na variável global
+        generosLista = data['dados']; // armazena os filmes na variável global
         mostrarGeneros(generosLista);
 
     } catch (error) {
@@ -20,10 +20,10 @@ async function buscarGeneros() {
     };
 };
 
-// Função para exibir os filmes na tabela
+// função para exibir os filmes na tabela
 function mostrarGeneros(generos) {
     const tabela = document.getElementById('generos');
-    tabela.innerHTML = ''; // Limpa a tabela antes de adicionar os filmes
+    tabela.innerHTML = ''; // limpa a tabela antes de adicionar os filmes
 
     generos.forEach(genero => {
         const tr = document.createElement('tr');

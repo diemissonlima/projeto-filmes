@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Obter ID do filme a partir da URL
+    // obter ID do filme a partir da URL
     const urlParams = new URLSearchParams(window.location.search);
     const generoId = urlParams.get('id');
 
@@ -50,26 +50,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("editarGeneroForm");
 
     form.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Impede o envio padrão do formulário
+        event.preventDefault(); // impede o envio padrão do formulário
 
-        const id = document.getElementById("id").value; // Obtém o ID do genero
-        const nome = document.getElementById("nome").value; // Obtém o arquivo da capa
+        const id = document.getElementById("id").value; // obtém o ID do genero
+        const nome = document.getElementById("nome").value;
         const descricao = document.getElementById("descricao").value;
 
         const formData = new FormData();
-        formData.append("id", id); // Adiciona o ID do genero ao FormData
-        formData.append("nome", nome); // Adiciona o arquivo da capa ao FormData
-        formData.append("descricao", descricao)
+        formData.append("id", id); // adiciona o ID do genero ao FormData
+        formData.append("nome", nome); // adiciona nome ao FormData
+        formData.append("descricao", descricao) // adiciona a descricao ao FormData
 
         try {
             const response = await fetch("http://localhost/api/routes/generos/editar.php", {
-                method: "POST", // Método POST para enviar os dados
-                body: formData, // Enviando os dados do FormData
+                method: "POST", // método POST para enviar os dados
+                body: formData, // enviando os dados do FormData
             });
 
             if (response.ok) {
                 alert("Genero atualizado com sucesso!");
-                window.location.href = "listaGeneros.html"; // Redireciona para a lista de filmes
+                window.location.href = "listaGeneros.html"; // redireciona para a lista de filmes
             } else {
                 alert("Erro ao atualizar genero. Tente novamente.");
             }

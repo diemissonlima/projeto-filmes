@@ -2,14 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("cadastrarGeneroForm");
 
     form.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Impede o envio padrão do formulário
+        event.preventDefault(); // impede o envio padrão do formulário
 
-        const nome = document.getElementById("nome").value; // Obtém o arquivo da capa
+        const nome = document.getElementById("nome").value;
         const descricao = document.getElementById("descricao").value;
 
         const formData = new FormData();
-        formData.append("nome", nome); // Adiciona o arquivo ao FormData
-        formData.append("descricao", descricao); // Adiciona o arquivo ao FormData
+        formData.append("nome", nome); 
+        formData.append("descricao", descricao);
 
         try {
             const response = await fetch("http://localhost/api/routes/generos/criar.php", {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(response);
 
                 alert("Gênero cadastrado com sucesso!");
-                window.location.href = "cadastrarFilme.html"; // Redireciona para a lista de filmes
+                window.location.href = "listaGeneros.html"; // redireciona para a lista de generos
             } else {
                 alert("Erro ao cadastrar gênero. Tente novamente.");
             }
